@@ -1,3 +1,10 @@
+// Authorization
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+
+// User actions
+export const EDIT_USER = 'EDIT_USER';
+export const DELETE_USER = 'DELETE_USER';
+
 // Invoices
 export const INVOICES_FETCHING = 'INVOICES_FETCHING';
 

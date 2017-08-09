@@ -163,7 +163,7 @@ app.route('/api/customers')
     })
   })
   .post(function(req, res) {
-    var customer = Customer.build(_.pick(req.body, ['name', 'address', 'phone']));
+    let customer = Customer.build(_.pick(req.body, ['name', 'address', 'phone']));
     customer.save().then(function(customer){
       res.json(customer);
     });
@@ -199,7 +199,7 @@ app.route('/api/products')
     })
   })
   .post(function(req, res) {
-        var product = Product.build(_.pick(req.body, ['name', 'price']));
+        let product = Product.build(_.pick(req.body, ['name', 'price']));
     product.save().then(function(product){
       res.json(product);
     });

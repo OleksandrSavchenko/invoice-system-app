@@ -10,12 +10,13 @@ import { API_URL } from '../constants/config';
 export function invoicesFetching() {
     return dispatch => {
         dispatch({ type: LOADING_START });
-        axios.get(`${API_URL}/invoices`)
+        axios.get(`http://localhost:5000/invoices`)
             .then((res) => {
-                return dispatch({
-                    type: INVOICES_FETCHING,
-                    payload: res.data
-                });
+                console.log(res.data);
+                // return dispatch({
+                //     type: INVOICES_FETCHING,
+                //     payload: res.data
+                // });
             })
             .then(() => {
                 dispatch({ type: LOADING_FINISH });

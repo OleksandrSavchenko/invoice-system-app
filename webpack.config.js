@@ -17,5 +17,9 @@ module.exports = {
         contentBase: path.resolve(__dirname, 'public'),
         stats: 'errors-only',
         historyApiFallback: true
+    },
+    node: {
+        net: 'empty',
+        dns: 'empty'
     }
 };

@@ -7,6 +7,7 @@ import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 import rootReducer from './reducers/rootReducer';
 
+import ifToken from './utils/ifToken';
 
 const store = createStore(
     rootReducer,
@@ -15,6 +16,8 @@ const store = createStore(
         window.devToolsExtension ? window.devToolsExtension() : f => f
     )
 );
+
+ifToken(store);
 
 ReactDOM.render(
     <Provider store={store}>

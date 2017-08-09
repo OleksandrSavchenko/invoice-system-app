@@ -18,6 +18,7 @@ body {
 
 .container-md {
     width: 700px;
+    margin: 0 auto;
 }
 
 .btn-save {
