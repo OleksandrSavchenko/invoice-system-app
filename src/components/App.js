@@ -5,6 +5,8 @@ import { browserHistory } from 'react-router';
 import Header from './Header';
 import LoadingContainer from '../containers/LoadingContainer';
 
+import { logout } from '../actions/authorizationActions';
+
 class App extends Component {
     componentDidMount() {
         const currentLocation = browserHistory.getCurrentLocation().pathname;
@@ -16,7 +18,10 @@ class App extends Component {
     render() {
         return (
             <div className="wrapper">
-                <Header isAuthenticated={this.props.isAuthenticated}/>
+                <Header
+                    isAuthenticated={this.props.isAuthenticated}
+                    logout={this.props.logout}
+                />
                 <div className="content">
                     {this.props.children}
                 </div>
@@ -32,4 +37,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { logout })(App);

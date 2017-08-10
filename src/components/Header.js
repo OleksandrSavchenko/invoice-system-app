@@ -1,33 +1,45 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { browserHistory } from 'react-router';
 
-export default (props) => {
+export default ({ isAuthenticated, logout }) => {
     const menu = (
-        <div className="navbar-left">
-            <ul className="nav navbar-nav">
-                <li><Link to="/">Products</Link></li>
-                <li><Link to="/customers">Customers</Link></li>
-                <li><Link to="/">Invoices</Link></li>
-            </ul>
-        </div>
+        <ul className="nav navbar-nav">
+            <li><Link to="/">Products</Link></li>
+            <li><Link to="/customers">Customers</Link></li>
+            <li><Link to="/">Invoices</Link></li>
+        </ul>
+    );
+
+    const rightMenu = (
+        <ul className="nav navbar-nav navbar-right">
+            <li><a href="#" onClick={(e) => {
+                e.preventDefault();
+                logout();
+                browserHistory.push('/login');
+            }}>Logout</a></li>
+        </ul>
     );
 
     const registrationMenu = (
-        <div className="navbar-right">
-            <ul className="nav navbar-nav">
-                <li><Link to="/registration">Sign Up</Link></li>
-                <li><Link to="/login">Login</Link></li>
-            </ul>
-        </div>
+        <ul className="nav navbar-nav navbar-right">
+            <li><Link to="/registration">Sign Up</Link></li>
+            <li><Link to="/login">Login</Link></li>
+        </ul>
     );
 
     return (
-        <nav className="navbar navbar-default navbar-static-top">
-            <div className="navbar-header">
-                <Link className="navbar-brand" to="/">Invoice App</Link>
+        <nav className="navbar navbar-default">
+            <div className="container-fluid">
+                <div className="navbar-header">
+                    <Link className="navbar-brand" to="/">Invoice App</Link>
+                </div>
+                <div className="collapse navbar-collapse">
+                    { isAuthenticated ? menu : null}
+                    { !isAuthenticated ? registrationMenu : null}
+                    { isAuthenticated ? rightMenu : null }
+                </div>
             </div>
-            { props.isAuthenticated ? menu : null}
-            { !props.isAuthenticated ? registrationMenu : null}
         </nav>
     );
 }

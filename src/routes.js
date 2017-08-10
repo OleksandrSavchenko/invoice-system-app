@@ -15,7 +15,7 @@ export default (
         <Route path="/registration" component={Registration} />
         <Route path="/login" component={Login} />
         <Route path="/customers" component={Customers} />
-        {/*<Route path="/products" component={Products} />*/}
+        <Route path="/products" component={Products} />
         <Route path="/create-invoice" component={CreateInvoice}/>
     </Route>
 );

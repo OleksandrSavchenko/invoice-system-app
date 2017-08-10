@@ -1,26 +1,18 @@
 import axios from 'axios';
-
-import {
-    INVOICES_FETCHING,
-    LOADING_START,
-    LOADING_FINISH
-} from '../constants/types';
+import * as types from '../constants/types';
 import { API_URL } from '../constants/config';
 
 export function invoicesFetching() {
     return dispatch => {
-        dispatch({ type: LOADING_START });
-        axios.get(`http://localhost:5000/invoices`)
+        dispatch({ type: types.LOADING_START });
+        axios.get(`${API_URL}/invoices`)
             .then((res) => {
-                console.log(res.data);
-                // return dispatch({
-                //     type: INVOICES_FETCHING,
-                //     payload: res.data
-                // });
+                dispatch({
+                    type: types.INVOICES_FETCHING,
+                    payload: res.data
+                });
             })
-            .then(() => {
-                dispatch({ type: LOADING_FINISH });
-            })
+            .then(() => { dispatch({type: types.LOADING_FINISH}); })
             .catch((err) => {
             console.log(`Invoices loading is failed: ${err}`);
         }) ;

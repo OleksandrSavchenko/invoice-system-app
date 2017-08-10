@@ -33,7 +33,7 @@ class Customers extends Component {
     customersList() {
         return this.props.customers.map((customer, i) => {
             return (
-                <tr key={customer.id + customer.name}>
+                <tr key={customer.public_id}>
                     <th scope="row">{i}</th>
                     <td>{customer.name}</td>
                     <td>{customer.address}</td>
@@ -49,7 +49,7 @@ class Customers extends Component {
                     <td>
                         <button
                             className="btn btn-danger"
-                            onClick={(e) => this.deleteCustomer(e, customer.id)}
+                            onClick={() => this.deleteCustomer(customer.public_id)}
                         >
                             Delete
                         </button>
@@ -68,12 +68,11 @@ class Customers extends Component {
         });
     }
 
-    deleteCustomer(e, id) {
-        e.preventDefault();
+    deleteCustomer = (id) => {
         this.props.customerDelete(id).then(() => {
             this.props.customersFetching();
         });
-    }
+    };
 
     showModal() {
         this.setState({ showModal: !this.state.showModal });
@@ -99,6 +98,10 @@ class Customers extends Component {
     }
 
     render() {
+        if (this.props.customers.length === 0) {
+            return null;
+        }
+
         return (
             <div className="container">
                 <h2>Customers page</h2>
