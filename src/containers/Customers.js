@@ -34,7 +34,7 @@ class Customers extends Component {
         return this.props.customers.map((customer, i) => {
             return (
                 <tr key={customer.public_id}>
-                    <th scope="row">{i}</th>
+                    <th scope="row">{i + 1}</th>
                     <td>{customer.name}</td>
                     <td>{customer.address}</td>
                     <td>{customer.phone}</td>
@@ -175,7 +175,7 @@ class Customers extends Component {
 
 function mapStateToProps(state) {
     return {
-        customers: state.customers.data
+        customers: state.customers
     }
 }
 

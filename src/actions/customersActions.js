@@ -33,7 +33,7 @@ export function customerCreate(data) {
 export function customerEdit(data) {
     return dispatch => {
         dispatch({type: types.LOADING_START});
-        return axios.put(`${API_URL}/customers/${data.public_id}`, data)
+        return axios.put(`${API_URL}/customers`, data)
             .then(() => dispatch({type: types.LOADING_FINISH}))
             .catch((err) => {
                 console.log(`Customer creation is failed: ${err}`)

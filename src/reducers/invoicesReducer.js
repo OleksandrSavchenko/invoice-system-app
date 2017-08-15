@@ -4,14 +4,12 @@ import {
     INVOICES_FETCHING_FINISH
 } from '../constants/types';
 
-let initialState = {
-    data: []
-};
+let initialState = [];
 
-export default (state = [], action) => {
+export default (state = initialState, action) => {
     switch (action.type) {
         case INVOICES_FETCHING:
-            return { ...state, data: action.payload };
+            return action.payload;
         default:
             return state;
     }

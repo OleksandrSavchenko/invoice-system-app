@@ -14,7 +14,18 @@ export function invoicesFetching() {
             })
             .then(() => { dispatch({type: types.LOADING_FINISH}); })
             .catch((err) => {
-            console.log(`Invoices loading is failed: ${err}`);
-        }) ;
+                console.log(`Invoices loading is failed: ${err.response.data.message}`);
+            });
+    }
+}
+
+export function createInvoice(data) {
+    return dispatch => {
+        dispatch({ type: types.LOADING_START });
+        axios.post(`${API_URL}/invoices`, data)
+            .then(() => { dispatch({type: types.LOADING_FINISH}); })
+            .catch(err => {
+                console.log(`Invoice creating is failed: ${err.response.data.message}`)
+            });
     }
 }

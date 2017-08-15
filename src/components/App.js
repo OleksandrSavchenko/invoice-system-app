@@ -8,13 +8,6 @@ import LoadingContainer from '../containers/LoadingContainer';
 import { logout } from '../actions/authorizationActions';
 
 class App extends Component {
-    componentDidMount() {
-        const currentLocation = browserHistory.getCurrentLocation().pathname;
-        if (!this.props.isAuthenticated && (currentLocation !== '/login' || currentLocation !== '/registration')) {
-            browserHistory.push('/login');
-        }
-    }
-
     render() {
         return (
             <div className="wrapper">

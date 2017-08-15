@@ -5,7 +5,7 @@ import { browserHistory } from 'react-router';
 export default ({ isAuthenticated, logout }) => {
     const menu = (
         <ul className="nav navbar-nav">
-            <li><Link to="/">Products</Link></li>
+            <li><Link to="/products">Products</Link></li>
             <li><Link to="/customers">Customers</Link></li>
             <li><Link to="/">Invoices</Link></li>
         </ul>

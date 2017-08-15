@@ -1,13 +1,11 @@
 import { CUSTOMERS_FETCHING} from '../constants/types';
 
-let initialState = {
-    data: []
-};
+let initialState = [];
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case CUSTOMERS_FETCHING:
-            return { ...state, data: action.payload };
+            return action.payload;
         default:
             return state;
     }
