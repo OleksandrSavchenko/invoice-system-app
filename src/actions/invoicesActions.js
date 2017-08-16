@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as types from '../constants/types';
 import { API_URL } from '../constants/config';
+import { browserHistory } from 'react-router';
 
 export function invoicesFetching() {
     return dispatch => {
@@ -22,8 +23,11 @@ export function invoicesFetching() {
 export function createInvoice(data) {
     return dispatch => {
         dispatch({ type: types.LOADING_START });
-        axios.post(`${API_URL}/invoices`, data)
-            .then(() => { dispatch({type: types.LOADING_FINISH}); })
+        return axios.post(`${API_URL}/invoices`, data)
+            .then(() => {
+                browserHistory.push('/');
+                dispatch({type: types.LOADING_FINISH});
+            })
             .catch(err => {
                 console.log(`Invoice creating is failed: ${err.response.data.message}`)
             });
