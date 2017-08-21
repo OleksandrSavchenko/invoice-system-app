@@ -1,26 +1,18 @@
 {
-  "name": "interviewed-angular",
+  "name": "invoice-system-app",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --hot --inline",
-    "prod": "webpack -p",
-    "server": "node app.js",
-    "serverkoa": "nodemon --exec babel-node -- server"
+    "prod": "webpack -p"
   },
   "dependencies": {
     "axios": "^0.16.1",
     "babel-cli": "^6.24.1",
-    "body-parser": "1.15.0",
     "classnames": "^2.2.5",
-    "express": "~4.13.4",
     "jsonwebtoken": "^7.4.2",
-    "koa": "^2.2.0",
     "lodash": "latest",
-    "nodemon": "^1.11.0",
-    "react-bootstrap": "^0.31.0",
-    "sequelize": "^3.20.0",
-    "sqlite3": "latest"
+    "react-bootstrap": "^0.31.0"
   },
   "devDependencies": {
     "babel": "^6.23.0",
