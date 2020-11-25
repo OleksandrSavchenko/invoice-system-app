@@ -7,7 +7,7 @@
     "prod": "webpack -p"
   },
   "dependencies": {
-    "axios": "^0.16.1",
+    "axios": "^0.19.2",
     "babel-cli": "^6.24.1",
     "classnames": "^2.2.5",
     "jsonwebtoken": "^7.4.2",
